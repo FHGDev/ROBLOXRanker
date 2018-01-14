@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const bot = new discord.Client();
 const prefix = "!";
 const maxrank = 20;
-const groupId = 2750654;
+const groupId = 3152407;
 const roblox = require('roblox-js');
 bot.login(process.env.token);
 roblox.login({username: "FreakingHulk", password: process.env.password}).then((success) => {
@@ -16,7 +16,7 @@ function isCommand(command, message) {
 }
 
 bot.on("ready", () => {
-  bot.user.setGame(`Ranking up users in ${bot.guilds.array().length} servers`)
+  bot.user.setActivity(`up users in ${bot.guilds.array().length}` { type: "RANKING"})
 })
 
 bot.on('message', (message) => {
