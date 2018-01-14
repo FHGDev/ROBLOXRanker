@@ -4,7 +4,7 @@ const prefix = "!";
 const maxrank = 20;
 const groupId = 3152407;
 const roblox = require('roblox-js');
-bot.login(process.env.token);
+bot.login(process.env.tok);
 roblox.login({username: "FreakingHulk", password: process.env.password}).then((success) => {
   console.log(`Successfully Logged in with Username FreakingHulk, and password ${process.env.password}`)
 }).catch(() => {console.log("Failed to login.");});
