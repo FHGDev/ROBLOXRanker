@@ -20,7 +20,13 @@ bot.on("ready", () => {
   console.log("ROBLOXRanker ready!")
 })
 
-bot.on('message', (message) => {
+function isCommand(command, message){
+	var command = command.toLowerCase();
+	var content = message.content.toLowerCase();
+	return content.startsWith(prefix + command);
+}
+
+client.on('message', (message) => {
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     
@@ -53,6 +59,5 @@ bot.on('message', (message) => {
     		message.channel.send("Please enter a username.")
     	}
     	return;
-    })
-})
-
+    }
+});
