@@ -16,7 +16,8 @@ function isCommand(command, message) {
 }
 
 bot.on("ready", () => {
-  bot.user.setActivity(`up users in ${bot.guilds.array().length}` { type: "RANKING"})
+  bot.user.setActivity(`up users in ${bot.guilds.array().length}`, { type: "RANKING"})
+  console.log("ROBLOXRanker ready!")
 })
 
 bot.on('message', (message) => {
