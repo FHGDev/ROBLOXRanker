@@ -62,7 +62,7 @@ bot.on('message', (message) => {
     }
 });
 
-roblox.onFriendRequest(function (request) {
+roblox.onFriendRequest(function (id) {
    var args = message.content.split(/[ ]+/)
-   require('./events/friendrequest.js')(request, bot, args)
+   require('./events/friendrequest.js')(id, bot, args)
 })
