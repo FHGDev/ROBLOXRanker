@@ -53,5 +53,5 @@ bot.on('message', (message) => {
     		message.channel.send("Please enter a username.")
     	}
     	return;
-    }
+    })
 
