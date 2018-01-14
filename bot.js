@@ -54,4 +54,5 @@ bot.on('message', (message) => {
     	}
     	return;
     })
+})
 
