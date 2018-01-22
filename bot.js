@@ -32,10 +32,8 @@ bot.on("message", message => {
 						roblox.setRank(username, groupId, r)
 						.then(message.channel.send(`Successfully set ${username}s rank to ${rank} in group ${groupId}`))
 					}
-				}
+				})
 			})
 		}
-	}  else {
-		message.channel.send(`Please provide a username...`)
 	}
 })
