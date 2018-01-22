@@ -15,9 +15,9 @@ bot.on("ready", () => {
 })
 
 bot.on("message", message => {
-	let args = message.content.split(/[]+/).slice(0)
-	let r = args[1]
-	let username = args[0]
+	let args = message.content.split(/[]+/)
+	let r = args[2]
+	let username = args[1]
 	
 	if (message.content == prefix + "promote") {
 		if (username) {
