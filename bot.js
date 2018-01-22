@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const bot = new discord.Client();
 const prefix = "!";
-const maxrank = 20;
+const maxrank = 210;
 const groupId = 3152407;
 const roblox = require('roblox-js');
 bot.login(process.env.tok);
