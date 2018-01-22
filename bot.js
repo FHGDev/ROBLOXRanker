@@ -17,9 +17,10 @@ bot.on("ready", () => {
 bot.on("message", message => {
 	let args = message.content.split(/[]+/).slice(0)
 	let r = args[1]
+	let username = args[0]
+	
 	if (message.content == prefix + "promote") {
 		if (username) {
-		let username = args[0]
 		message.channel.send(`Checking ROBLOX for ${username}`)
 		roblox.getIdFromUsername(username)
 			.then(function (id) {
