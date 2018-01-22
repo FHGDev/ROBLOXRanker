@@ -10,11 +10,32 @@ roblox.login({username: "FreakingHulk", password: process.env.password}).then((s
 }).catch(() => {console.log("Failed to login.");});
 
 bot.on("ready", () => {
-  bot.user.setActivity(`for !help | ${bot.guilds.array().length}`, { type: "LISTENING"})
+  bot.user.setActivity(`for !help | ${bot.guilds.array().length}`, {type: "WATCHING"})
   console.log("ROBLOXRanker ready!")
 })
 
-bot.on('message', (message) => require('./events/message.js')(bot, message))
-roblox.onFriendRequest((id) => require('./events/friendrequest.js')(id, bot))
-roblox.onShout((message) => require('./events/shout.js')(bot, message))
-		       
+bot.on("message", message => {
+	let args = message.content.split(/[]+/).slice(0)
+	let r = args[1]
+	if (message.content == prefix + "promote") {
+		if (username) {
+		let username = args[0]
+		message.channel.send(`Checking ROBLOX for ${username}`)
+		roblox.getIdFromUsername(username)
+			.then(function (id) {
+				roblox.getRankInGroup(groupId, id)
+				.then(function (rank) {
+					if (maximumrank <= rank) {
+						message.channel.send(`${username} is rank ${rank} and not promotable.`)
+					} else {
+						message.channel.send(`${username} is rank ${rank} and is promotable.`)
+						roblox.setRank(username, groupId, r)
+						.then(message.channel.send(`Successfully set ${username}s rank to ${rank} in group ${groupId}`))
+					}
+				}
+			})
+		}
+	}  else {
+		message.channel.send(`Please provide a username...`)
+	}
+})
