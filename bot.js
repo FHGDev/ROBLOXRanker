@@ -32,7 +32,7 @@ bot.on('message', (message) => {
 	var args = mArray.slice(1)
 	let cmd = bot.commands.get(mArray[0].slice(prefix.length))
 	if (cmd) {
-		cmd.run(bot, message, args, discord)
+		cmd.run(bot, message, args, discord, roblox)
 		console.log(`${message.author.username} used the ${message.content.split(" ")[0]} command.`)
 	}
 })
