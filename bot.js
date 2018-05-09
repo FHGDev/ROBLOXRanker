@@ -18,22 +18,17 @@ require('fs').readdir("./commands/", (err, files) => {
 
 roblox.login({username: "FreakingHulk", password: process.env.password}).then((success) => {
   console.log(`Successfully Logged in with Username FreakingHulk, and password ${process.env.password}`)
-}).catch(() => {console.log("Failed to login.");});
+}).catch(() => console.log("Failed to login."););
 
 bot.on("ready", () => {
   bot.user.setActivity(`for !help | ${bot.guilds.array().length}`, {type: "WATCHING"})
   console.log("ROBLOXRanker ready!")
 })
 
-function isCommand(command, message){
-	var command = command.toLowerCase();
-	var content = message.content.toLowerCase();
-	return content.startsWith(prefix + command);
-}
-
 bot.on('message', (message) => {
 	if (message.author.bot) return; // Dont answer yourself.
-    var mArray = message.content.split(" ")
+  var mArray = message.content.split(" ")
+  if (!message.content.startsWith(prefix)) return
 	var args = mArray.slice(1)
 	let cmd = bot.commands.get(mArray[0].slice(prefix.length))
 	if (cmd) {
