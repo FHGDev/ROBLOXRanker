@@ -6,7 +6,7 @@ const groupId = 127081;
 const roblox = require('roblox-js');
 bot.login(process.env.tok);
 
-bot.commands = new discord.Collection
+bot.commands = new discord.Collection()
 
 require('fs').readdir("./commands/", (err, files) => {
 	console.log("Loading Commands...");
@@ -28,7 +28,7 @@ bot.on("ready", () => {
 bot.on('message', (message) => {
 	if (message.author.bot) return; // Dont answer yourself.
   var mArray = message.content.split(" ")
-  if (!message.content.startsWith(prefix)) return
+  if (!message.content.startsWith(prefix)) return;
 	var args = mArray.slice(1)
 	let cmd = bot.commands.get(mArray[0].slice(prefix.length))
 	if (cmd) {
