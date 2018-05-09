@@ -4,7 +4,7 @@ const prefix = "!";
 const maxrank = "210";
 const groupId = "3152407";
 const roblox = require('roblox-js');
-bot.login(process.env.tok);
+bot.login(process.env.token);
 
 bot.commands = new discord.Collection()
 
