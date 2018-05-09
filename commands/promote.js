@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args, discord, roblox) => {
-  const groupId = "3152407"
-  const maximumrank = "240"
+  const groupId = 3152407
+  const maximumrank = 240
   var username = args.join(" ")
     	if (username){
     		message.channel.send(`Checking ROBLOX for ${username}`)
